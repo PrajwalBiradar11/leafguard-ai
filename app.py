@@ -431,7 +431,45 @@ st.markdown("""
         .bulletin-card, .service-card, .sample-card { padding: 14px 16px; }
         .chat-header-box { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
         .stButton>button { min-height: 46px; }
-        div[data-testid="stDataFrame"], .stTable { overflow-x: auto; max-width: 100%; }
+        div[data-testid="stDataFrame"], .stTable { overflow-x: auto; max-width: 100%;
+         .st-key-bottom_dock {
+            position: fixed !important;
+            left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            background: #ffffff;
+            border-top: 1px solid #dcfce7;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+            padding: 6px 8px calc(6px + env(safe-area-inset-bottom)) 8px;
+        }
+        .st-key-bottom_dock [data-testid="stHorizontalBlock"] {
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 4px !important;
+            align-items: center !important;
+        }
+        .st-key-bottom_dock [data-testid="stColumn"],
+        .st-key-bottom_dock [data-testid="column"] {
+            min-width: 0 !important;
+            width: auto !important;
+            flex: 1 1 0 !important;
+        }
+        .st-key-bottom_dock .stButton > button {
+            min-height: 48px;
+            padding: 4px 2px;
+            font-size: 11px;
+            line-height: 1.1;
+            white-space: pre-line;
+            border-radius: 14px;
+        }
+
+        /* Header: upar ka bada "Scan Leaf" button phone pe chhupao
+           (nav aur dock mein Scan pehle se hai) */
+        .st-key-btn_top_scan { display: none !important; }
+        .st-key-btn_signin button { min-height: 42px; }
+    }
+</style>
+        
+        }
     }
 </style>
 """, unsafe_allow_html=True)
