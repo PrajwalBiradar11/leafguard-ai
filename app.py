@@ -414,9 +414,27 @@ st.markdown("""
         color: white;
     }
     header, #MainMenu, footer {visibility: hidden;}
+
+    /* ===================== MOBILE (phone, 640px tak) =====================
+       Ye rules sirf chhoti screen pe lagte hain, Windows/laptop pe nahi. */
+    @media (max-width: 640px) {
+        .block-container {
+            padding: 1rem 0.75rem 6rem 0.75rem !important;
+        }
+        h1 { font-size: 1.6rem !important; line-height: 1.25 !important; }
+        h2 { font-size: 1.3rem !important; line-height: 1.3 !important; }
+        h3 { font-size: 1.1rem !important; }
+        .brand-title { font-size: 18px; }
+        .hero-container { padding: 20px; border-radius: 18px; margin-bottom: 18px; }
+        .hero-title { font-size: 24px; }
+        .hero-sub { font-size: 14px; margin-bottom: 16px; }
+        .bulletin-card, .service-card, .sample-card { padding: 14px 16px; }
+        .chat-header-box { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
+        .stButton>button { min-height: 46px; }
+        div[data-testid="stDataFrame"], .stTable { overflow-x: auto; max-width: 100%; }
+    }
 </style>
 """, unsafe_allow_html=True)
-
 # ---------------------------------------------------------
 # Session State Initialization
 # ---------------------------------------------------------
