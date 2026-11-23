@@ -712,7 +712,17 @@ class PlantDiseaseHybridModel(nn.Module):
         fused = torch.cat([f1, f2], dim=1)
         return self.classifier(fused)
 
-
+# Auto-Download Model on Streamlit Cloud if not present
+    weight_file = 'best_model.pth'
+    if not os.path.exists(weight_file):
+        MODEL_URL = "https://github.com/PrajwalBiradar11/leafguard-ai/releases/download/v1.0/best_model.pth"  # <-- Yahan apna copied link daalo
+        try:
+            with st.spinner("Downloading 46-Class AI Model Weights from GitHub Release..."):
+                import urllib.request
+                urllib.request.urlretrieve(MODEL_URL, weight_file)
+        except Exception as e:
+            print(f"Download Error: {e}")
+            
 def run_leaf_inference(pil_image: Image.Image):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     possible_paths = [
