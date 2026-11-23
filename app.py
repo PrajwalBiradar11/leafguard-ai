@@ -469,9 +469,6 @@ st.markdown("""
     }
 </style>
         
-        }
-    }
-</style>
 """, unsafe_allow_html=True)
 # ---------------------------------------------------------
 # Session State Initialization
